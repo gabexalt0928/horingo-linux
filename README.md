@@ -28,6 +28,7 @@ Horingo Linux is a custom-engineered, **64-bit Linux CLI** (Command Line Interfa
 
 Ensure you have the **Vitals** (`bzImage` and `rootfs.cpio`) downloaded to your device.
 
+> NOTE: Instructions, ISO version, and anything else may vary.
 ### 💻 Option A: Desktop (Windows/Linux/Mac)
 1. Install [QEMU](https://www.qemu.org) and add it to your PATH.
 2. Run the "Warp Speed" command:
@@ -45,7 +46,6 @@ cd ~/storage/downloads
 qemu-system-x86_64 -m 512M -kernel bzImage -initrd rootfs.cpio -nographic -append "console=ttyS0"
 ```
 
-> Note: Instructions may vary. Type pwd and then ls to find your location.
 
 
 ### 📱 Option B: Mobile (Android via Termux)
@@ -55,3 +55,29 @@ qemu-system-x86_64 -m 512M -kernel bzImage -initrd rootfs.cpio -nographic -appen
 pkg update && pkg upgrade
 pkg install qemu-system-x86-64-headless
 termux-setup-storage
+```
+
+### 📺 Option C: Mobile Graphics (via Limbo x86 Emulator)
+If you prefer a graphical BIOS-style boot on Android, use the **Limbo PC Emulator**:
+
+1. **Setup the Machine**:
+   - **Architecture**: `x86_64`
+   - **Machine Type**: `pc`
+   - **CPU Model**: `qemu64`
+   - **CPU Cores**: `1` or `2`
+   - **RAM**: `512MB`
+2. **Mount the Soul**:
+   - **Removable Storage**: Check **CDROM**.
+   - **Image**: Select your `Horingo-i386-Alpha.iso` (or `rootfs.iso9660`).
+3. **Graphics Interface**:
+   - **VGA Display**: `std`
+   - **User Interface**: `SDL`
+4. **Boot**: Press the **Play** button to see the SeaBIOS and the Horingo login prompt.
+
+---
+
+## ⚖️ License
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for the full legal text.
+
+
+
